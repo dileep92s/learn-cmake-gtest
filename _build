@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+mkdir -p bin
+mkdir -p bld
+
 pushd bld > /dev/null
 
 cmake .. -G "Unix Makefiles"
