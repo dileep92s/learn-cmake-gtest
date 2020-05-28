@@ -25,5 +25,5 @@ project (test_dummy_app)
 include_directories( gtest )
 link_directories ( gtest )
 
-add_executable ( test_dummy_app ${TST_SRC_DIR}/test_main.cpp )
-target_link_libraries ( test_dummy_app squarenum addnum gtest gmock gtest_main gmock_main)
+add_executable ( test_dummy_app ${TST_SRC_DIR}/test_main.cpp ${TST_SRC_DIR}/mocks.cpp ${SRC_DIR}/addnum.cpp)
+target_link_libraries ( test_dummy_app gtest gmock gtest_main gmock_main pthread)
