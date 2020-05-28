@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+pushd bld > /dev/null
+
+cmake .. -G "Unix Makefiles"
+
+function print_header
+{
+    echo --------------
+    echo $1
+    echo -------------- 
+}
+
+if [[ $1 == "clean" ]] 
+then
+    print_header "Cleanup"
+    make clean
+fi
+
+print_header "Building Binary"
+make
+
+if [[ $? == 0 ]] 
+then
+    print_header "Executing Binary"
+    ./dummy_app
+fi
+
+popd > /dev/null
+

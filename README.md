@@ -1,2 +1,2 @@
 # learn-cmake-gtest
-learn cmake &amp; google test
+learn cmake and google test
