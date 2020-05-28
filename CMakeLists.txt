@@ -5,6 +5,7 @@ project (dummy_app)
 MESSAGE ( "RUN CMAKE CONFIG" )
 
 set (SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR} ./src)
+set (TST_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR} ./tst)
 
 # add to -I option
 include_directories( inc )
@@ -17,3 +18,12 @@ add_library ( addnum STATIC ${SRC_DIR}/addnum.cpp ${SRC_DIR}/squarenum.cpp )
 
 add_executable ( ${PROJECT_NAME} ${SRC_DIR}/main.cpp )
 target_link_libraries ( ${PROJECT_NAME} squarenum addnum )
+
+# ---------------------------------
+
+project (test_dummy_app)
+include_directories( gtest )
+link_directories ( gtest )
+
+add_executable ( test_dummy_app ${TST_SRC_DIR}/test_main.cpp )
+target_link_libraries ( test_dummy_app squarenum addnum gtest gmock gtest_main gmock_main)

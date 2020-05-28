@@ -27,6 +27,8 @@ if [[ $? == 0 ]]
 then
     print_header "Executing Binary"
     ./dummy_app
+    print_header "Executing Unit Test"
+    ./test_dummy_app
 fi
 
 popd > /dev/null
