@@ -1,6 +1,7 @@
 #include <iostream>
 #include "addnum.hpp"
 #include "BClass.hpp"
+#include "AClass.hpp"
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
     z = addNum(2, 3);
     cout << "result : " << z << " \n";
 
-    BClass bObj;
+    BClass<AClass> bObj;
     bObj.sendData(99);
 
     return 0;

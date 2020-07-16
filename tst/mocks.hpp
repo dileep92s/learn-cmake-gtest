@@ -5,7 +5,6 @@
 #include <functional>
 
 extern std::function<int(int)> _squareNum;
-extern std::function<void(int)> _send;
 
 class CMock
 {
@@ -15,5 +14,17 @@ class CMock
     ~CMock();
 
     MOCK_CONST_METHOD1(squareNum,int(int));
+};
+
+class SMock
+{
+    public:
     MOCK_CONST_METHOD1(send,void(int));
+};
+
+class MockAClass
+{
+    public:
+    static SMock *mock;
+    static void send(int x);
 };

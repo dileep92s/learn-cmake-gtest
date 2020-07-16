@@ -10,10 +10,13 @@
 using namespace ::testing;
 using ::testing::Return;
 
+SMock *MockAClass::mock;
+
 class Fixture : public Test
 {
     public:
     CMock mock;
+    SMock smock;
 };
 
 TEST_F(Fixture, test0)
@@ -28,8 +31,11 @@ TEST_F(Fixture, test0)
 
 TEST_F(Fixture, BClass_SendData)
 {
-    BClass testObj;
-    EXPECT_CALL(mock, send(_));
-    testObj.sendData(99);
+    MockAClass::mock = &smock;
+    BClass<MockAClass> obj;
+    EXPECT_CALL(smock, send);
 
+    // obj.sendData(99);
+
+    sendData<MockAClass>(99);
 }
